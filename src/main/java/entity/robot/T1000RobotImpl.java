@@ -19,8 +19,33 @@ public class T1000RobotImpl implements Robot {
         this.head = head;
     }
 
+    public Hand getHand() {
+        return hand;
+    }
+
+    public void setHand(Hand hand) {
+        this.hand = hand;
+    }
+
+    public Leg getLeg() {
+        return leg;
+    }
+
+    public void setLeg(Leg leg) {
+        this.leg = leg;
+    }
+
+    public Head getHead() {
+        return head;
+    }
+
+    public void setHead(Head head) {
+        this.head = head;
+    }
+
     @Override
     public void action() {
+
         head.calc();
         hand.catchSomething();
         leg.go();

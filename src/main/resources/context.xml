@@ -19,4 +19,10 @@
         <constructor-arg ref="sonyLeg"/>
         <constructor-arg ref="toshibaHead"/>
     </bean>
+
+    <bean id="t1000v_3" class="entity.robot.T1000RobotImpl">
+        <property name="hand" ref="toshibaHand"/>
+        <property name="head" ref="sonyHead"/>
+        <property name="leg" ref="toshibaLeg"/>
+    </bean>
 </beans>
