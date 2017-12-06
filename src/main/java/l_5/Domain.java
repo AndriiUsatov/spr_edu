@@ -13,5 +13,6 @@ public class Domain {
         Robot t1000 = (T1000RobotImpl) context.getBean("t1000v_3");
         t1000.dance();
         t1000.action();
+        //Some comment
     }
 }
