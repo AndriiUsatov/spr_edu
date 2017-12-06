@@ -14,6 +14,8 @@ public class Domain {
         t1000.dance();
         t1000.action();
 
+        //First comment
+
         //Second comment
     }
 }
