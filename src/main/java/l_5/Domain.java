@@ -25,5 +25,6 @@ public class Domain {
         //Second comment
         //Fourth comment
         //Fifth comment
+        System.out.println("AHAHAHAAA");
     }
 }
