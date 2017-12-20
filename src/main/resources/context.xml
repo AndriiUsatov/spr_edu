@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="false"
+default-init-method="init"
+default-destroy-method="destroy">
 
     <bean id="sonyHand" class="entity.part.impl.SonyHand"/>
     <bean id="sonyLeg" class="entity.part.impl.SonyLeg"/>
@@ -24,5 +28,21 @@
         <property name="hand" ref="toshibaHand"/>
         <property name="head" ref="sonyHead"/>
         <property name="leg" ref="toshibaLeg"/>
+    </bean>
+
+    <bean id="t1000v_4" class="entity.robot.T1000RobotImpl"
+          p:hand-ref="toshibaHand"
+          p:head-ref="sonyHead"
+          p:leg-ref="toshibaLeg"
+          scope="prototype"
+    init-method="init"
+    destroy-method="destroy">
+        <constructor-arg value="silver" index="0" type="java.lang.String"/>
+        <constructor-arg value="2006" index="1" type="int"/>
+        <constructor-arg value="true" index="2" type="boolean"/>
+
+        <!--<property name="hand" ref="toshibaHand"/>-->
+        <!--<property name="head" ref="sonyHead"/>-->
+        <!--<property name="leg" ref="toshibaLeg"/>-->
     </bean>
 </beans>

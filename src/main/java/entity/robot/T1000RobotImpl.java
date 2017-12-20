@@ -11,12 +11,56 @@ public class T1000RobotImpl implements Robot {
     private Leg leg;
     private Head head;
 
-    public T1000RobotImpl(){}
+    private String color;
+    private int year;
+    private boolean soundEnabled;
+
+    public T1000RobotImpl() {
+    }
 
     public T1000RobotImpl(Hand hand, Leg leg, Head head) {
         this.hand = hand;
         this.leg = leg;
         this.head = head;
+    }
+
+    public T1000RobotImpl(String color, int year, boolean soundEnabled) {
+        this.color = color;
+        this.year = year;
+        this.soundEnabled = soundEnabled;
+    }
+
+    public T1000RobotImpl(Hand hand, Leg leg, Head head, String color, int year, boolean soundEnabled) {
+        this.hand = hand;
+        this.leg = leg;
+        this.head = head;
+        this.color = color;
+        this.year = year;
+        this.soundEnabled = soundEnabled;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public boolean isSoundEnabled() {
+        return soundEnabled;
+    }
+
+    public void setSoundEnabled(boolean soundEnabled) {
+        this.soundEnabled = soundEnabled;
     }
 
     public Hand getHand() {
@@ -45,14 +89,24 @@ public class T1000RobotImpl implements Robot {
 
     @Override
     public void action() {
-
         head.calc();
         hand.catchSomething();
         leg.go();
+        System.out.println("color: " + color);
+        System.out.println("year: " + year);
+        System.out.println("can play sound: " + soundEnabled);
     }
 
     @Override
     public void dance() {
         System.out.println("T1000 is dancing!");
+    }
+
+    public void init(){
+        System.out.println("init " + this.getClass().getSimpleName());
+    }
+
+    public void destroy(){
+        System.out.println("destroy");
     }
 }
