@@ -4,45 +4,13 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="false"
-default-init-method="init"
-default-destroy-method="destroy">
-
-    <bean id="sonyHand" class="entity.part.impl.SonyHand"/>
-    <bean id="sonyLeg" class="entity.part.impl.SonyLeg"/>
-    <bean id="sonyHead" class="entity.part.impl.SonyHead"/>
-    <bean id="toshibaHand" class="entity.part.impl.ToshibaHand"/>
-    <bean id="toshibaLeg" class="entity.part.impl.ToshibaLeg"/>
-    <bean id="toshibaHead" class="entity.part.impl.ToshibaHead"/>
+>
+    <!--default-init-method="init"-->
+    <!--default-destroy-method="destroy"-->
+    <import resource="t1000_context.xml"/>
+    <import resource="db_context.xml"/>
+    <!--<bean class="post_proc.MyBeanPostProcessor"/>-->
 
 
-    <bean id="t1000v_1" class="entity.robot.T1000RobotImpl">
-    </bean>
 
-    <bean id="t1000v_2" class="entity.robot.T1000RobotImpl">
-        <constructor-arg ref="sonyHand"/>
-        <constructor-arg ref="sonyLeg"/>
-        <constructor-arg ref="toshibaHead"/>
-    </bean>
-
-    <bean id="t1000v_3" class="entity.robot.T1000RobotImpl">
-        <property name="hand" ref="toshibaHand"/>
-        <property name="head" ref="sonyHead"/>
-        <property name="leg" ref="toshibaLeg"/>
-    </bean>
-
-    <bean id="t1000v_4" class="entity.robot.T1000RobotImpl"
-          p:hand-ref="toshibaHand"
-          p:head-ref="sonyHead"
-          p:leg-ref="toshibaLeg"
-          scope="prototype"
-    init-method="init"
-    destroy-method="destroy">
-        <constructor-arg value="silver" index="0" type="java.lang.String"/>
-        <constructor-arg value="2006" index="1" type="int"/>
-        <constructor-arg value="true" index="2" type="boolean"/>
-
-        <!--<property name="hand" ref="toshibaHand"/>-->
-        <!--<property name="head" ref="sonyHead"/>-->
-        <!--<property name="leg" ref="toshibaLeg"/>-->
-    </bean>
 </beans>

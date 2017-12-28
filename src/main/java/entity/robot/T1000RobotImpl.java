@@ -4,8 +4,10 @@ package entity.robot;
 import entity.part.Hand;
 import entity.part.Head;
 import entity.part.Leg;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
-public class T1000RobotImpl implements Robot {
+public class T1000RobotImpl implements Robot, InitializingBean, DisposableBean{
 
     private Hand hand;
     private Leg leg;
@@ -108,5 +110,10 @@ public class T1000RobotImpl implements Robot {
 
     public void destroy(){
         System.out.println("destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this + " method afterPropertiesSet()");
     }
 }
